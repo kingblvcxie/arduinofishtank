@@ -183,7 +183,7 @@ void setup() {
                          TIMER_ANY, //month
                          lightCall);
   //Light Alarm OFF                       
-  RTCTimedEvent.addTimer(30, //minute
+  RTCTimedEvent.addTimer(3, //minute
                          17, //hour
                          TIMER_ANY, //day fo week
                          TIMER_ANY, //day
