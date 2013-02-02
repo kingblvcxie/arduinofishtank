@@ -183,7 +183,7 @@ void setup() {
                          TIMER_ANY, //month
                          lightCall);
   //Light Alarm OFF                       
-  RTCTimedEvent.addTimer(30, //minute
+  RTCTimedEvent.addTimer(3, //minute
                          17, //hour
                          TIMER_ANY, //day fo week
                          TIMER_ANY, //day
@@ -217,18 +217,18 @@ void pumpCall(RTCTimerInformation* Sender) {
   lcd.setCursor(0, 1); 
   lcd.print("PUMP ACTIVE");//print pump is on to LCD
   lcd.setCursor(0, 1);
-  delay(10000);
+  delay(10000); //post to LCD for 10 seconds
   lcd.clear();  
 }
 
 void pumpOffCall(RTCTimerInformation* Sender) {
   
-  digitalWrite(pumpRelay, HIGH); //turn pump on
+  digitalWrite(pumpRelay, HIGH); //turn pump off
   Serial.println("Pump is not running.");//print pump isnt running to serial
   lcd.setCursor(0, 1); 
   lcd.print("PUMP INACTIVE");//print pump is off to LCD
   lcd.setCursor(0, 1);
-  delay(10000);
+  delay(10000); //post to LCD for 10 seconds
   lcd.clear(); 
 }
 
@@ -238,18 +238,18 @@ void lightCall(RTCTimerInformation* Sender) {
   Serial.println("Lights turning on.");
   lcd.setCursor(0, 1);
   lcd.print("LIGHTS ACTIVE");
-  delay(10000);
+  delay(10000); //post to LCD for 10 seconds
   lcd.setCursor(0, 1);
   lcd.clear();
 }
 
 void lightOffCall(RTCTimerInformation* Sender) {
   
-  digitalWrite(lightsRelay, HIGH); //turn lights on
+  digitalWrite(lightsRelay, HIGH); //turn lights off
   Serial.println("Lights turning off.");
   lcd.setCursor(0, 1);
   lcd.print("LIGHTS INACTIVE");
-  delay(10000);
+  delay(10000);  //post to LCD for 10 seconds
   lcd.setCursor(0, 1);
   lcd.clear();
 }
