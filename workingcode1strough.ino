@@ -7,11 +7,13 @@ RTC_DS1307 RTC;
 
 //pins used in LCD screen
 LiquidCrystal lcd(8,9,4,5,6,7); 
+
 //sensors& readings
 int lightsensorpin = A1; //analog pin #1. Defines light sensing diode
-int lightReading;  //defined later as reading of light sensor
+int lightReading= analogRead(A1);  //defined later as reading of light sensor
 int watersensorpin = A3; // analong pin #3. Defines water sensing (fsr)
-int waterReading;  //defined later as reading of water sensor
+int waterReading= analogRead(A3);  //defined later as reading of water sensor
+
 //relays
 int lightsRelay = 12; // digital pin #2. Defines lights relay
 int pumpRelay = 2; // digital pin #12. Defines pump relay
@@ -37,7 +39,7 @@ void setup() {
   
   
   //initial buffer for 3 timers
-  RTCTimedEvent.initialCapacity = sizeof(RTCTimerInformation)*18;
+  RTCTimedEvent.initialCapacity = sizeof(RTCTimerInformation)*19;
 
   //Pump Alarm 1 ON- 8:00AM
   RTCTimedEvent.addTimer(0,         //minute
@@ -169,25 +171,26 @@ void setup() {
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          lightOffCall);
+
+
+  //Time Display on LCD
+  RTCTimedEvent.addTimer(TIMER_ANY,         //minute
+                         TIMER_ANY,         //hour
+                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day
+                         TIMER_ANY, //month
+                         timeCall);
 }
 
 void loop() {
   RTCTimedEvent.loop();
-  DateTime now = RTC.now();
-    Serial.print("DATE- ");
-    Serial.print(now.year(), DEC);
-    Serial.print('/');
-    Serial.print(now.month(), DEC);
-    Serial.print('/');
-    Serial.print(now.day(), DEC);
-    Serial.print(' ');
-    Serial.print("TIME- ");
-    Serial.print(now.hour(), DEC);
-    Serial.print(':');
-    Serial.print(now.minute(), DEC);
-    Serial.print(':');
-    Serial.print(now.second(), DEC);
-    Serial.println();
+  DateTime now = RTC.now(); 
+  pumpDisplay();
+  lightDisplay();
+  
+    //   while (Serial.available() > 0) {
+      // display each character to the LCD
+    //  lcd.write(Serial.read());
  
 }
 
@@ -233,4 +236,39 @@ void lightOffCall(RTCTimerInformation* Sender) {
   lcd.setCursor(0, 1);
   lcd.clear();
 }
+
+void pumpDisplay ()  {
+ if(pumpReading>10){
+    lcd.setCursor(0,1);
+    lcd.print("WATERING PLANTS");
+    Serial.print("Water Value= ");
+    Serial.println(pumpReading);
+  }
+}
+
+void lightDisplay(){
+  if(lightsReading>500){
+    lcd.setCursor(0,1);
+    lcd.print("LIGHTS ON");
+    Serial.print("Light Value= ");
+    Serial.println(lightsReading);
+  }
+}
+
+void timeCall(RTCTimerInformation* Sender)  {
+
+  Serial.print("DATE- ");
+    Serial.print(now.year(), DEC);
+    Serial.print('/');
+    Serial.print(now.month(), DEC);
+    Serial.print('/');
+    Serial.print(now.day(), DEC);
+    Serial.print(' ');
+    Serial.print("TIME- ");
+    Serial.print(now.hour(), DEC);
+    Serial.print(':');
+    Serial.print(now.minute(), DEC);
+    Serial.print(':');
+    Serial.print(now.second(), DEC);
+    Serial.println();
 
