@@ -44,7 +44,7 @@ void setup() {
   //Pump Alarm 1 ON- 8:00AM
   RTCTimedEvent.addTimer(0,         //minute
                          8,         //hour
-                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day of week
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          pumpCall);
@@ -52,7 +52,7 @@ void setup() {
   //Pump Alarm 1 OFF- 8:03AM
   RTCTimedEvent.addTimer(3,         //minute
                          8, //hour
-                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day of week
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          pumpOffCall);
@@ -60,7 +60,7 @@ void setup() {
   //Pump Alarm 2 ON - 11:00AM
   RTCTimedEvent.addTimer(0, //minute
                          11, //hour
-                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day of week
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          pumpCall);
@@ -68,56 +68,56 @@ void setup() {
   //Pump Alarm 2 OFF - 11:03AM                       
   RTCTimedEvent.addTimer(3, //minute
                          11, //hour
-                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day of week
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          pumpOffCall);
   //Pump Alarm 3 ON - 2:00PM                       
   RTCTimedEvent.addTimer(0, //minute
                          14, //hour
-                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day of week
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          pumpCall);
   //Pump Alarm 3 OFF - 2:03PM                       
   RTCTimedEvent.addTimer(3, //minute
                          14, //hour
-                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day of week
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          pumpOffCall);
   //Pump Alarm 4 ON  - 5:00PM                       
   RTCTimedEvent.addTimer(0, //minute
                          17, //hour
-                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day of week
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          pumpCall);
   //Pump Alarm 4 OFF - 5:03PM                       
   RTCTimedEvent.addTimer(3, //minute
                          17, //hour
-                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day of week
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          pumpOffCall);
   //Pump Alarm 5 ON - 8:00PM                       
   RTCTimedEvent.addTimer(0, //minute
                          20, //hour
-                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day of week
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          pumpCall);
   //Pump Alarm 5 OFF - 8:03PM
   RTCTimedEvent.addTimer(3, //minute
                          20, //hour
-                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day of week
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          pumpOffCall);
   //Pump Alarm 6 ON - 11:00PM                   
   RTCTimedEvent.addTimer(0, //minute
                          23, //hour
-                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day of week
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          pumpCall);
@@ -125,49 +125,49 @@ void setup() {
   //Pump Alarm 6 OFF - 11:03PM                       
   RTCTimedEvent.addTimer(3, //minute
                          23, //hour
-                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day of week
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          pumpOffCall);
   //Pump Alarm 7 ON - 2:00AM                       
   RTCTimedEvent.addTimer(0, //minute
                          2, //hour
-                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day of week
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          pumpCall);
   //Pump Alarm 7 OFF - 2:03AM                       
   RTCTimedEvent.addTimer(3, //minute
                          2, //hour
-                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day of week
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          pumpOffCall);
   //Pump Alarm 8 ON - 5:030M                       
   RTCTimedEvent.addTimer(0, //minute
                          5, //hour
-                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day of week
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          pumpCall);
   //Pump Alarm 8 OFF - 5:03AM                       
   RTCTimedEvent.addTimer(3, //minute
                          5, //hour
-                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day of week
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          pumpOffCall);
   //Light Alarm ON                       
   RTCTimedEvent.addTimer(0, //minute
                          9, //hour
-                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day of week
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          lightCall);
   //Light Alarm OFF                       
   RTCTimedEvent.addTimer(0, //minute
                          17, //hour
-                         TIMER_ANY, //day fo week
+                         TIMER_ANY, //day of week
                          TIMER_ANY, //day
                          TIMER_ANY, //month
                          lightOffCall);
